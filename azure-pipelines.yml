@@ -4,15 +4,24 @@
 # https://aka.ms/yaml
 
 trigger: none
+
 pool: default
 
 stages:
-- stage:
+- stage: A
+  displayName: "Stage A - Build and Test"
   jobs:
-  - job: A
+  - job: A1
+    displayName: "Job A1 - build"
     steps:
-    - bash: echo "A"
-
-  - job: B
+    - script: echo "Building the application in Job A1"
+      displayName: "Build step"
+      
+- stage: B
+  displayName: "Stage B - Build and Test"
+  jobs:
+  - job: B1
+    displayName: "Job B1 - build"
     steps:
-    - bash: echo "B"
+    - script: echo "Building the application in Job B1"
+      displayName: "Build step"
